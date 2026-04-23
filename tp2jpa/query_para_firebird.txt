@@ -1,3 +1,5 @@
+-- al ubicar la db en el persistence.xml
+-- tenes que tomar la URL con ATENCION
 -- jpa.fdb
 -- 
 
@@ -16,7 +18,7 @@ CREATE TABLE FACTURA (
         REFERENCES CLIENTE(ID)
 );
 
+-- para hacer inserts descomentar en el main
+-- INSERT INTO CLIENTE(ID,DESCR) VALUES (1, 'Juan');
 
-INSERT INTO CLIENTE(ID,DESCR) VALUES (1, 'Juan');
-
-INSERT INTO FACTURA(NRO,ID,IMPORTE) VALUES (100, 1, 500.0);
+-- INSERT INTO FACTURA(NRO,ID,IMPORTE) VALUES (100, 1, 500.0);
