@@ -4,7 +4,7 @@
 mvn compile 
 
 ## Para Ejecutar: 
-mvn exec:java -Dexec.mainClass="com.tp2jpa.App"
+mvn exec:java -Dexec.mainClass="com.tp2jpaActividad2.ClienteView"
 
 
 # para ejecutar el jar

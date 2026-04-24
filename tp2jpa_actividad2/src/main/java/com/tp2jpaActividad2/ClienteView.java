@@ -62,7 +62,7 @@ public class ClienteView {
 		System.out.print(" Ingrese id  ");
 		String id = bufer.readLine();
 		String respuesta = new ClienteController().consultaCliente(Integer.parseInt(id));
-		if (respuesta == "Si") {
+		if (respuesta.equals("Si") ) {
     		String unUsuario = new ClienteController().borrarCliente(Integer.parseInt(id),"", 0);
     		System.out.println(unUsuario);
 		}
@@ -78,7 +78,7 @@ public class ClienteView {
 		System.out.print(" Ingrese id  ");
 		String id = bufer.readLine();
 		String respuesta = new ClienteController().consultaCliente(Integer.parseInt(id));
-		if (respuesta == "Si") {
+		if (respuesta.equals("Si")) {
 			System.out.print(" Ingrese nombre  ");
 			String nombre = bufer.readLine();
 			System.out.print(" Ingrese codloc  ");
@@ -98,10 +98,15 @@ public class ClienteView {
 		System.out.print(" Ingrese id  ");
 		String id = bufer.readLine();
 		String respuesta = new ClienteController().consultaCliente(Integer.parseInt(id));
-		if ( respuesta == "No" && Integer.parseInt(id) == 0)
-			System.out.println("No Hay Clientes ");
-		else	
-	                                    System.out.println("No Existe Cliente "+ id);
+		if( respuesta.equals("Si")){
+			System.out.println("Hay un Cliente con la id "+ id );
+		}else{
+			if ( respuesta.equals("No") && Integer.parseInt(id) == 0){
+				System.out.println("No Hay Clientes ");
+			}else{
+				System.out.println("No Existe Cliente "+ id);
+			}
+		}
 	}
 	
 	public static int menu(BufferedReader bufer)throws IOException

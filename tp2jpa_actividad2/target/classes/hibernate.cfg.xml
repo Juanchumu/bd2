@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Conexión -->
+        <property name="hibernate.connection.driver_class">org.firebirdsql.jdbc.FBDriver</property>
+		<property name="hibernate.connection.url">jdbc:firebirdsql://localhost:30501//var/lib/firebird/data/jpa_actividad2.fdb</property>
+        <property name="hibernate.connection.username">SYSDBA</property>
+        <property name="hibernate.connection.password">masterkey</property>
+
+        <!-- Dialecto -->
+        <property name="hibernate.dialect">org.hibernate.dialect.FirebirdDialect</property>
+
+        <!-- Opcionales útiles -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Manejo de esquema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Entidad -->
+        <mapping class="com.tp2jpaActividad2.Cliente"/>
+
+    </session-factory>
+</hibernate-configuration>

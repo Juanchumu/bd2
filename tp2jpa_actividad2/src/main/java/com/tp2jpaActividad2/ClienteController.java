@@ -69,6 +69,7 @@ public class ClienteController {
   }
   
   public String consultaCliente(int id){
+	  String SALIDA = "";
 	  SessionFactory sessionFactory = new 
 			  Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Cliente.class).buildSessionFactory();
 	  Session session = sessionFactory.openSession();
@@ -76,26 +77,30 @@ public class ClienteController {
 		  session.beginTransaction();
 		  Query query ;
 		  if (id == 0) {
-		     query = session.createQuery("select id , nombre , codloc FROM cliente");
+		     query = session.createQuery("select id , nombre , codloc FROM Cliente");
 		    }
 		  else {
-	         query = session.createQuery("select id , nombre , codloc FROM cliente where id = " + Integer.toString(id));
+	         query = session.createQuery("select id , nombre , codloc FROM Cliente where id = " + Integer.toString(id));
 	        }
           List<Object[]> list = query.list();
+		  session.getTransaction().commit();  // commit SIEMPRE
           if (list.size() > 0) {
               for(Object[] o: list) {
                  System.out.println(o[0]+"\t"+o[1]+"\t"+o[2]);
               }
-              return "Si";
+              //return "Si";
+			  SALIDA = "Si";
           }
           else {     
-             return "No";
+             //return "No";
+			 SALIDA = "No";
           }
       }
       catch(Exception e)
 	    {e.printStackTrace();}
       sessionFactory.close();
-	  return "Consulta ERROR... !!!";
+	  //return "Consulta ERROR... !!!";
+	  return SALIDA;
   }
 }
 
