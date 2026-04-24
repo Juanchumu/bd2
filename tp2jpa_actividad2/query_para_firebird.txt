@@ -1,0 +1,16 @@
+-- al ubicar la db en el persistence.xml
+-- tenes que tomar la URL con ATENCION
+--  192.168.0.1:30501//var/lib/firebird/data/jpa_actividad2.fdb
+--  sysdba masterkey
+
+CREATE TABLE CLIENTE (
+    ID INTEGER NOT NULL,
+    NOMBRE VARCHAR(100),
+	CODLOC INTEGER,
+    CONSTRAINT PK_CLIENTE PRIMARY KEY (ID)
+);
+
+-- para hacer inserts descomentar en el main
+-- no hacer inserts mejor, dejar que la app lo haga 
+-- INSERT INTO CLIENTE(ID,DESCR) VALUES (1, 'Juan',2;
+
